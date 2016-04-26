@@ -1,0 +1,25 @@
+devoboard.name=3Devo Devoboard
+
+# TODO
+devoboard.vid.0=0x2341
+devoboard.pid.0=0x0042
+
+devoboard.upload.tool=arduino:avrdude
+devoboard.upload.protocol=wiring
+devoboard.upload.speed=115200
+devoboard.upload.maximum_size=253952
+devoboard.upload.maximum_data_size=8192
+
+devoboard.bootloader.tool=arduino:avrdude
+devoboard.bootloader.low_fuses=0xFF
+devoboard.bootloader.high_fuses=0xD8
+devoboard.bootloader.extended_fuses=0xFD
+devoboard.bootloader.unlock_bits=0x3F
+devoboard.bootloader.lock_bits=0x0F
+#devoboard.bootloader.file=stk500v2/stk500boot_v2_mega2560.hex
+
+devoboard.build.mcu=atmega2560
+devoboard.build.f_cpu=16000000L
+devoboard.build.core=arduino:arduino
+devoboard.build.variant=mega
+devoboard.build.board=AVR_DEVOBOARD
