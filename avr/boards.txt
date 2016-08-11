@@ -1,8 +1,7 @@
 devoboard.name=3Devo Devoboard
 
-# TODO
-devoboard.vid.0=0x2341
-devoboard.pid.0=0x0042
+devoboard.vid.0=0x16D0
+devoboard.pid.0=0x0C5B
 
 devoboard.upload.tool=arduino:avrdude
 devoboard.upload.protocol=wiring
