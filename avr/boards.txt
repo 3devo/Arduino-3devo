@@ -21,7 +21,7 @@ devoboard.bootloader.extended_fuses=0xFC
 devoboard.bootloader.unlock_bits=0x3F
 devoboard.bootloader.lock_bits=0x0F
 devoboard.bootloader.tool=arduino:avrdude
-devoboard.bootloader.file=optiboot_mega2560.hex
+devoboard.bootloader.file=optiboot_atmega2560.hex
 
 devoboard.build.mcu=atmega2560
 devoboard.build.f_cpu=16000000L
