@@ -14,8 +14,8 @@ devoboard.upload.maximum_data_size=8192
 
 # Low power crystal oscillator 8-16Mhz, 16K CK + 65ms
 devoboard.bootloader.low_fuses=0xFF
-# JTAGEN, SPIEN, EESAVE, BOOTSZ=8192bytes, BOOTRST
-devoboard.bootloader.high_fuses=0x90
+# OCDEN, JTAGEN, SPIEN, EESAVE, BOOTSZ=8192bytes, BOOTRST
+devoboard.bootloader.high_fuses=0x10
 # BODLEVEL=4.3V
 devoboard.bootloader.extended_fuses=0xFC
 devoboard.bootloader.unlock_bits=0x3F
