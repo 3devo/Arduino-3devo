@@ -1,4 +1,4 @@
-devoboard.name=3Devo Devoboard
+devoboard.name=3devo Devoboard
 
 devoboard.vid.0=0x16D0
 devoboard.pid.0=0x0C5B
