@@ -1,2 +1,2 @@
-name=3devo boards
+name=3devo AVR boards
 version=1.0.0

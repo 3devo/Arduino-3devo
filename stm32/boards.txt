@@ -1,0 +1,115 @@
+# See: https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
+
+menu.xserial=U(S)ART support
+menu.usb=USB support (if available)
+menu.xusb=USB speed (if available)
+menu.opt=Optimize
+menu.rtlib=C Runtime Library
+menu.upload_method=Upload method
+
+################################################################################
+# Airid Mainboard (STM32F401)
+
+airid_mainboard.name=Airid Mainboard
+
+# TODO: pid/vid
+airid_mainboard.build.vid=0x0483
+airid_mainboard.build.core=STM32:arduino
+airid_mainboard.build.board=STM32_AIRID_MAINBOARD
+airid_mainboard.build.variant=Airid_Mainboard
+airid_mainboard.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+# Partition name for mass-storage uploads through an st-link board. This
+# should match the st-link board, not the target CPU
+airid_mainboard.node=NODE_F401RE
+airid_mainboard.upload.maximum_size=524288
+airid_mainboard.upload.maximum_data_size=98304
+airid_mainboard.build.mcu=cortex-m4
+airid_mainboard.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+# Used to load the right HAL and CMSIS includes
+airid_mainboard.build.series=STM32F4xx
+# Not sure what this is used for. Probably by core code?
+airid_mainboard.build.product_line=STM32F401xE
+# CMSIS lib to link in
+airid_mainboard.build.cmsis_lib_gcc=arm_cortexM4l_math
+# TODO: Should this be here? Should this use altID (as the maple upload does)?
+# Should the address be hardcoded (might be the same over all STM32 chips)?
+airid_mainboard.upload.dfu_alt=0
+airid_mainboard.upload.dfu_address=0x08000000
+
+# Upload menu
+airid_mainboard.menu.upload_method.MassStorage=Mass Storage
+airid_mainboard.menu.upload_method.MassStorage.upload.protocol=
+airid_mainboard.menu.upload_method.MassStorage.upload.tool=STM32:massStorageCopy
+
+airid_mainboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+airid_mainboard.menu.upload_method.swdMethod.upload.protocol=0
+airid_mainboard.menu.upload_method.swdMethod.upload.options=-g
+airid_mainboard.menu.upload_method.swdMethod.upload.tool=STM32:stm32CubeProg
+
+airid_mainboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+airid_mainboard.menu.upload_method.serialMethod.upload.protocol=1
+airid_mainboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
+airid_mainboard.menu.upload_method.serialMethod.upload.tool=STM32:stm32CubeProg
+
+airid_mainboard.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+airid_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
+airid_mainboard.menu.upload_method.dfuMethod.upload.options=-g
+airid_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32:stm32CubeProg
+
+airid_mainboard.menu.upload_method.dfuUtil=dfu-util
+airid_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
+# This must exist, otherwise the IDE falls back to upload using programmer
+airid_mainboard.menu.upload_method.dfuUtil.upload.protocol=
+
+################################################################################
+# TODO: Remove a bunch of these options once we are sure what we need.
+# Serialx activation
+airid_mainboard.menu.xserial.none=Enabled (no generic 'Serial')
+airid_mainboard.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+airid_mainboard.menu.xserial.generic=Enabled (generic 'Serial')
+airid_mainboard.menu.xserial.disabled=Disabled (No Serial support)
+airid_mainboard.menu.xserial.disabled.build.xSerial=
+
+# USB connectivity
+airid_mainboard.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+airid_mainboard.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+airid_mainboard.menu.usb.CDC=CDC (no generic 'Serial')
+airid_mainboard.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+airid_mainboard.menu.usb.HID=HID (keyboard and mouse)
+airid_mainboard.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+airid_mainboard.menu.usb.none=None
+airid_mainboard.menu.xusb.FS=Low/Full Speed
+airid_mainboard.menu.xusb.HS=High Speed
+airid_mainboard.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+airid_mainboard.menu.xusb.HSFS=High Speed in Full Speed mode
+airid_mainboard.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+# Optimizations
+airid_mainboard.menu.opt.osstd=Smallest (-Os default)
+airid_mainboard.menu.opt.oslto=Smallest (-Os) with LTO
+airid_mainboard.menu.opt.oslto.build.flags.optimize=-Os -flto
+airid_mainboard.menu.opt.o1std=Fast (-O1)
+airid_mainboard.menu.opt.o1std.build.flags.optimize=-O1
+airid_mainboard.menu.opt.o1lto=Fast (-O1) with LTO
+airid_mainboard.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+airid_mainboard.menu.opt.o2std=Faster (-O2)
+airid_mainboard.menu.opt.o2std.build.flags.optimize=-O2
+airid_mainboard.menu.opt.o2lto=Faster (-O2) with LTO
+airid_mainboard.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+airid_mainboard.menu.opt.o3std=Fastest (-O3)
+airid_mainboard.menu.opt.o3std.build.flags.optimize=-O3
+airid_mainboard.menu.opt.o3lto=Fastest (-O3) with LTO
+airid_mainboard.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+airid_mainboard.menu.opt.ogstd=Debug (-g)
+airid_mainboard.menu.opt.ogstd.build.flags.optimize=-g -Og
+
+# C Runtime Library
+airid_mainboard.menu.rtlib.nano=Newlib Nano (default)
+airid_mainboard.menu.rtlib.nanofp=Newlib Nano + Float Printf
+airid_mainboard.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+airid_mainboard.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+airid_mainboard.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+airid_mainboard.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+airid_mainboard.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+airid_mainboard.menu.rtlib.full=Newlib Standard
+airid_mainboard.menu.rtlib.full.build.flags.ldspecs=
