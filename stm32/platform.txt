@@ -6,11 +6,4 @@ tools.dfuUtil.cmd=dfu-util
 tools.dfuUtil.upload.params.verbose=-v
 tools.dfuUtil.upload.params.quiet=
 # This assumes dfu-util is available system-wide
-# TODO: How to tell the bootloader to start the sketch after uploading?
-# STM32_Programmer.sh uses --go for this, which might be a non-standard
-# extension. dfu-util has --detach, which complains about being
-# unsupported and --reset which does not seem to work (at least not with
-# the jumper still in place, so it probably resets the board, jumping back
-# into the bootloader again). Possibly adding :leave can be added to the
-# address to send a "leave" command.
-tools.dfuUtil.upload.pattern="{cmd}" --alt "{upload.dfu_alt}" --dfuse-address "{upload.dfu_address}" {upload.options} {upload.verbose} -D "{build.path}/{build.project_name}.bin"
+tools.dfuUtil.upload.pattern="{cmd}" --alt "{upload.dfu_alt}" --dfuse-address "{upload.dfu_address}:leave" {upload.options} {upload.verbose} -D "{build.path}/{build.project_name}.bin"
