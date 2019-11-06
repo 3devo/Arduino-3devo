@@ -55,11 +55,13 @@ airid_mainboard.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
 airid_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
 airid_mainboard.menu.upload_method.dfuMethod.upload.options=-g
 airid_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32:stm32CubeProg
+airid_mainboard.menu.upload_method.dfuMethod.upload.use_1200bps_touch=true
 
 airid_mainboard.menu.upload_method.dfuUtil=dfu-util
 airid_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
 # This must exist, otherwise the IDE falls back to upload using programmer
 airid_mainboard.menu.upload_method.dfuUtil.upload.protocol=
+airid_mainboard.menu.upload_method.dfuUtil.upload.use_1200bps_touch=true
 
 ################################################################################
 # TODO: Remove a bunch of these options once we are sure what we need.
