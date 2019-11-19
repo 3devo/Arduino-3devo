@@ -113,6 +113,10 @@ extern "C" {
 // HAL configuration
 #define HSE_VALUE               16000000U
 
+// Default I2c bus is on these pins
+#define PIN_WIRE_SDA PB7
+#define PIN_WIRE_SCL PB6
+
 #ifdef __cplusplus
 } // extern "C"
 #endif
