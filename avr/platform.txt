@@ -1,2 +1,2 @@
-name=3Devo boards
+name=3devo boards
 version=1.0.0
