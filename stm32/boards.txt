@@ -17,7 +17,7 @@ airid_mainboard.build.vid=0x0483
 airid_mainboard.build.core=STM32:arduino
 airid_mainboard.build.board=STM32_AIRID_MAINBOARD
 airid_mainboard.build.variant=Airid_Mainboard
-airid_mainboard.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+airid_mainboard.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial} -DCORE_DEBUG
 # Partition name for mass-storage uploads through an st-link board. This
 # should match the st-link board, not the target CPU
 airid_mainboard.node=NODE_F401RE
