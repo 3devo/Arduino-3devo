@@ -1,0 +1,18 @@
+# Config for gdb and OpenOCD. To start:
+#
+#     arm-none-eabi-gdb -x gdb.init /path/to/Sketch.ino.elf
+
+# This lets gdb start openocd and connect to it through a stdio pipe.
+# This is convenient and secure, without opening up any ports
+target extended-remote | openocd -c "gdb_port pipe" -c "telnet_port 0" --file openocd.cfg -c init -c halt
+
+# Alternatively, if you start openocd manually (with -c "gdb_port 3333"),
+# you can connect to it using:
+#target extended-remote :3333
+
+set mem inaccessible-by-default off
+set print pretty
+
+b HardFault_Handler
+b abort
+set confirm off
