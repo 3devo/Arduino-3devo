@@ -24,7 +24,9 @@ airid_mainboard.node=NODE_F401RE
 airid_mainboard.upload.maximum_size=524288
 airid_mainboard.upload.maximum_data_size=98304
 airid_mainboard.build.mcu=cortex-m4
-airid_mainboard.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard
+# This enables -g always, which can be removed if this is fixed upstream
+# https://github.com/stm32duino/Arduino_Core_STM32/issues/873
+airid_mainboard.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard -g
 # Used to load the right HAL and CMSIS includes
 airid_mainboard.build.series=STM32F4xx
 # Not sure what this is used for. Probably by core code?
@@ -102,8 +104,8 @@ airid_mainboard.menu.opt.o3std=Fastest (-O3)
 airid_mainboard.menu.opt.o3std.build.flags.optimize=-O3
 airid_mainboard.menu.opt.o3lto=Fastest (-O3) with LTO
 airid_mainboard.menu.opt.o3lto.build.flags.optimize=-O3 -flto
-airid_mainboard.menu.opt.ogstd=Debug (-g)
-airid_mainboard.menu.opt.ogstd.build.flags.optimize=-g -Og
+airid_mainboard.menu.opt.ogstd=Debug (-Og)
+airid_mainboard.menu.opt.ogstd.build.flags.optimize=-Og
 
 # C Runtime Library
 airid_mainboard.menu.rtlib.nano=Newlib Nano (default)
