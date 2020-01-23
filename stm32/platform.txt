@@ -1,9 +1,16 @@
 name=3devo STM32 boards
 version=1.0.0
 
-# STM32CubeProgrammer upload
+# dfu-util with serial reset
 tools.dfuUtil.cmd=dfu-util
 tools.dfuUtil.upload.params.verbose=-v
 tools.dfuUtil.upload.params.quiet=
 # This assumes dfu-util is available system-wide
-tools.dfuUtil.upload.pattern="{cmd}" --alt "{upload.dfu_alt}" --dfuse-address "{upload.dfu_address}:leave" {upload.options} {upload.verbose} -D "{build.path}/{build.project_name}.bin"
+tools.dfuUtil.upload.pattern="{cmd}" --device ",{upload.dfu_vid}:{upload.dfu_pid}" --alt "{upload.dfu_alt}" --dfuse-address "{upload.dfu_address}:leave" {upload.options} {upload.verbose} -D "{build.path}/{build.project_name}.bin"
+
+# dfu-util with DFU autoreset
+tools.dfuUtilReset.cmd=dfu-util
+tools.dfuUtilReset.upload.params.verbose=-v
+tools.dfuUtilReset.upload.params.quiet=
+# This assumes dfu-util is available system-wide
+tools.dfuUtilReset.upload.pattern="{cmd}" --device "{build.vid}:{build.pid},{upload.dfu_vid}:{upload.dfu_pid}" --alt "{upload.dfu_alt}" --dfuse-address "{upload.dfu_address}:leave" {upload.options} {upload.verbose} -D "{build.path}/{build.project_name}.bin"
