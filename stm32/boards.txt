@@ -44,6 +44,19 @@ airid_mainboard.upload.dfu_alt=0
 airid_mainboard.upload.dfu_address=0x08000000
 
 # Upload menu
+airid_mainboard.menu.upload_method.dfuUtilReset=dfu-util with DFU autoreset
+airid_mainboard.menu.upload_method.dfuUtilReset.upload.tool=dfuUtilReset
+airid_mainboard.menu.upload_method.dfuUtilReset.upload.options=
+# This must exist, otherwise the IDE falls back to upload using programmer
+airid_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
+
+airid_mainboard.menu.upload_method.dfuUtil=dfu-util with serial autoreset
+airid_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
+airid_mainboard.menu.upload_method.dfuUtil.upload.use_1200bps_touch=true
+airid_mainboard.menu.upload_method.dfuUtil.upload.options=
+# This must exist, otherwise the IDE falls back to upload using programmer
+airid_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
+
 airid_mainboard.menu.upload_method.MassStorage=Mass Storage
 airid_mainboard.menu.upload_method.MassStorage.upload.protocol=
 airid_mainboard.menu.upload_method.MassStorage.upload.tool=STM32:massStorageCopy
@@ -63,19 +76,6 @@ airid_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
 airid_mainboard.menu.upload_method.dfuMethod.upload.options=-g
 airid_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32:stm32CubeProg
 airid_mainboard.menu.upload_method.dfuMethod.upload.use_1200bps_touch=true
-
-airid_mainboard.menu.upload_method.dfuUtilReset=dfu-util with DFU autoreset
-airid_mainboard.menu.upload_method.dfuUtilReset.upload.tool=dfuUtilReset
-airid_mainboard.menu.upload_method.dfuUtilReset.upload.options=
-# This must exist, otherwise the IDE falls back to upload using programmer
-airid_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
-
-airid_mainboard.menu.upload_method.dfuUtil=dfu-util with serial autoreset
-airid_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
-airid_mainboard.menu.upload_method.dfuUtil.upload.use_1200bps_touch=true
-airid_mainboard.menu.upload_method.dfuUtil.upload.options=
-# This must exist, otherwise the IDE falls back to upload using programmer
-airid_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
 
 ################################################################################
 # TODO: Remove a bunch of these options once we are sure what we need.
