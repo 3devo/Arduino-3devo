@@ -17,7 +17,7 @@ airid_mainboard.build.pid=0x0f44
 # Vid/pid of bootloader, after reset
 airid_mainboard.upload.dfu_vid=0x0483
 airid_mainboard.upload.dfu_pid=0xdf11
-airid_mainboard.build.core=STM32:arduino
+airid_mainboard.build.core=STM32-3devo:arduino
 airid_mainboard.build.board=STM32_AIRID_MAINBOARD
 airid_mainboard.build.variant=Airid_Mainboard
 airid_mainboard.build.usb_strings='-DUSB_MANUFACTURER_STRING="3devo BV (www.3devo.com)"' '-DUSB_PRODUCT_STRING="Airid mainboard"'
@@ -59,22 +59,22 @@ airid_mainboard.menu.upload_method.dfuUtil.upload.protocol=
 
 airid_mainboard.menu.upload_method.MassStorage=Mass Storage
 airid_mainboard.menu.upload_method.MassStorage.upload.protocol=
-airid_mainboard.menu.upload_method.MassStorage.upload.tool=STM32:massStorageCopy
+airid_mainboard.menu.upload_method.MassStorage.upload.tool=STM32-3devo:massStorageCopy
 
 airid_mainboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
 airid_mainboard.menu.upload_method.swdMethod.upload.protocol=0
 airid_mainboard.menu.upload_method.swdMethod.upload.options=-g
-airid_mainboard.menu.upload_method.swdMethod.upload.tool=STM32:stm32CubeProg
+airid_mainboard.menu.upload_method.swdMethod.upload.tool=STM32-3devo:stm32CubeProg
 
 airid_mainboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
 airid_mainboard.menu.upload_method.serialMethod.upload.protocol=1
 airid_mainboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
-airid_mainboard.menu.upload_method.serialMethod.upload.tool=STM32:stm32CubeProg
+airid_mainboard.menu.upload_method.serialMethod.upload.tool=STM32-3devo:stm32CubeProg
 
 airid_mainboard.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
 airid_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
 airid_mainboard.menu.upload_method.dfuMethod.upload.options=-g
-airid_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32:stm32CubeProg
+airid_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32-3devo:stm32CubeProg
 airid_mainboard.menu.upload_method.dfuMethod.upload.use_1200bps_touch=true
 
 ################################################################################
