@@ -115,7 +115,7 @@ extern "C" {
 
 // Default I2c bus is on these pins
 #define PIN_WIRE_SDA PB7
-#define PIN_WIRE_SCL PB6
+#define PIN_WIRE_SCL PB8 // Moved from PB6 to PB8
 
 #ifdef __cplusplus
 } // extern "C"
