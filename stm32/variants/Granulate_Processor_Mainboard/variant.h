@@ -91,12 +91,12 @@ extern "C" {
 #define NUM_ANALOG_INPUTS       13
 #define NUM_ANALOG_FIRST        46
 
-// On-board LED pin number
-#define LED_BUILTIN             13
+// On-board LED pin number - not available
+#define LED_BUILTIN             NC
 #define LED_GREEN               LED_BUILTIN
 
-// On-board user button
-#define USER_BTN                PC13
+// On-board user button - not available
+#define USER_BTN                NC
 
 // Timer Definitions
 #define TIMER_TONE              TIM10
