@@ -37,7 +37,7 @@ airid_mainboard.build.series=STM32F4xx
 # Not sure what this is used for. Probably by core code?
 airid_mainboard.build.product_line=STM32F401xE
 # CMSIS lib to link in
-airid_mainboard.build.cmsis_lib_gcc=arm_cortexM4l_math
+airid_mainboard.build.cmsis_lib_gcc=arm_cortexM4lf_math
 # TODO: Should this be here? Should this use altID (as the maple upload does)?
 # Should the address be hardcoded (might be the same over all STM32 chips)?
 airid_mainboard.upload.dfu_alt=0
@@ -160,7 +160,7 @@ granulate_processor_mainboard.build.series=STM32F4xx
 # Not sure what this is used for. Probably by core code?
 granulate_processor_mainboard.build.product_line=STM32F401xE
 # CMSIS lib to link in
-granulate_processor_mainboard.build.cmsis_lib_gcc=arm_cortexM4l_math
+granulate_processor_mainboard.build.cmsis_lib_gcc=arm_cortexM4lf_math
 # TODO: Should this be here? Should this use altID (as the maple upload does)?
 # Should the address be hardcoded (might be the same over all STM32 chips)?
 granulate_processor_mainboard.upload.dfu_alt=0
