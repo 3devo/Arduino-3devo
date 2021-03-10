@@ -252,3 +252,69 @@ granulate_processor_mainboard.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scan
 granulate_processor_mainboard.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
 granulate_processor_mainboard.menu.rtlib.full=Newlib Standard
 granulate_processor_mainboard.menu.rtlib.full.build.flags.ldspecs=
+
+##########################################################################################
+# Based on generic STM32G0 board
+gp20_hopperboard.name=GP20 Hopperboard
+
+gp20_hopperboard.build.core=STM32-3devo:arduino
+gp20_hopperboard.build.mcu=cortex-m0plus
+gp20_hopperboard.build.series=STM32G0xx
+gp20_hopperboard.build.cmsis_lib_gcc=arm_cortexM0l_math
+# This enables -g always, which can be removed if this is fixed upstream
+# https://github.com/stm32duino/Arduino_Core_STM32/issues/873
+gp20_hopperboard.build.extra_flags=-D{build.product_line} {build.xSerial} -D__CORTEX_SC=0 -g
+
+gp20_hopperboard.upload.maximum_size=65536
+gp20_hopperboard.upload.maximum_data_size=8192
+gp20_hopperboard.build.board=STM32_GP20_HOPPERBOARD
+gp20_hopperboard.build.product_line=STM32G030xx
+gp20_hopperboard.build.variant=GP20_Hopperboard
+
+# Upload menu
+gp20_hopperboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+gp20_hopperboard.menu.upload_method.swdMethod.upload.protocol=0
+gp20_hopperboard.menu.upload_method.swdMethod.upload.options=-g
+gp20_hopperboard.menu.upload_method.swdMethod.upload.tool=STM32-3devo:stm32CubeProg
+
+gp20_hopperboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+gp20_hopperboard.menu.upload_method.serialMethod.upload.protocol=1
+gp20_hopperboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
+gp20_hopperboard.menu.upload_method.serialMethod.upload.tool=STM32-3devo:stm32CubeProg
+
+# Serial menu
+gp20_hopperboard.menu.xserial.generic=Enabled (generic 'Serial')
+gp20_hopperboard.menu.xserial.none=Enabled (no generic 'Serial')
+gp20_hopperboard.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+gp20_hopperboard.menu.xserial.disabled=Disabled (no Serial support)
+gp20_hopperboard.menu.xserial.disabled.build.xSerial=
+
+# Optimization menu
+gp20_hopperboard.menu.opt.osstd=Smallest (-Os default)
+gp20_hopperboard.menu.opt.oslto=Smallest (-Os) with LTO
+gp20_hopperboard.menu.opt.oslto.build.flags.optimize=-Os -flto
+gp20_hopperboard.menu.opt.o1std=Fast (-O1)
+gp20_hopperboard.menu.opt.o1std.build.flags.optimize=-O1
+gp20_hopperboard.menu.opt.o1lto=Fast (-O1) with LTO
+gp20_hopperboard.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+gp20_hopperboard.menu.opt.o2std=Faster (-O2)
+gp20_hopperboard.menu.opt.o2std.build.flags.optimize=-O2
+gp20_hopperboard.menu.opt.o2lto=Faster (-O2) with LTO
+gp20_hopperboard.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+gp20_hopperboard.menu.opt.o3std=Fastest (-O3)
+gp20_hopperboard.menu.opt.o3std.build.flags.optimize=-O3
+gp20_hopperboard.menu.opt.o3lto=Fastest (-O3) with LTO
+gp20_hopperboard.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+gp20_hopperboard.menu.opt.ogstd=Debug (-g)
+gp20_hopperboard.menu.opt.ogstd.build.flags.optimize=-g -Og
+
+# C Runtime menu
+gp20_hopperboard.menu.rtlib.nano=Newlib Nano (default)
+gp20_hopperboard.menu.rtlib.nanofp=Newlib Nano + Float Printf
+gp20_hopperboard.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+gp20_hopperboard.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+gp20_hopperboard.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+gp20_hopperboard.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+gp20_hopperboard.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+gp20_hopperboard.menu.rtlib.full=Newlib Standard
+gp20_hopperboard.menu.rtlib.full.build.flags.ldspecs=
