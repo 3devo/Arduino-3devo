@@ -274,7 +274,7 @@ gp20_hopperboard.build.variant=GP20_Hopperboard
 # Upload menu
 gp20_hopperboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
 gp20_hopperboard.menu.upload_method.swdMethod.upload.protocol=0
-gp20_hopperboard.menu.upload_method.swdMethod.upload.options=-g
+gp20_hopperboard.menu.upload_method.swdMethod.upload.options=-hardRst
 gp20_hopperboard.menu.upload_method.swdMethod.upload.tool=STM32-3devo:stm32CubeProg
 
 gp20_hopperboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
