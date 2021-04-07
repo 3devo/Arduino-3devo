@@ -102,14 +102,6 @@ extern "C" {
 #define TIMER_TONE              TIM10
 #define TIMER_SERVO             TIM11
 
-// UART Definitions
-#define SERIAL_UART_INSTANCE    2 //Connected to ST-Link
-
-// Default pin used for 'Serial' instance (ex: ST-Link)
-// Mandatory for Firmata
-#define PIN_SERIAL_RX           0
-#define PIN_SERIAL_TX           1
-
 // HAL configuration
 #define HSE_VALUE               16000000U
 
