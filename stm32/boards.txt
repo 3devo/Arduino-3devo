@@ -131,127 +131,127 @@ airid_mainboard.menu.rtlib.full=Newlib Standard
 airid_mainboard.menu.rtlib.full.build.flags.ldspecs=
 
 ################################################################################
-# Granulate Processor Mainboard (STM32F401)
+# GP20 Mainboard (STM32F401)
 
-granulate_processor_mainboard.name=Granulate Processor Mainboard
+gp20_mainboard.name=GP20 Mainboard
 
-granulate_processor_mainboard.build.vid=0x16d0
-granulate_processor_mainboard.build.pid=0x102A
+gp20_mainboard.build.vid=0x16d0
+gp20_mainboard.build.pid=0x102A
 # Vid/pid of bootloader, after reset
-granulate_processor_mainboard.upload.dfu_vid=0x0483
-granulate_processor_mainboard.upload.dfu_pid=0xdf11
-granulate_processor_mainboard.build.core=STM32-3devo:arduino
-granulate_processor_mainboard.build.board=STM32_GRANULATE_PROCESSOR_MAINBOARD
-granulate_processor_mainboard.build.variant=Granulate_Processor_Mainboard
-granulate_processor_mainboard.build.usb_strings='-DUSB_MANUFACTURER_STRING="3devo BV (www.3devo.com)"' '-DUSB_PRODUCT_STRING="Granulate Processor mainboard"'
-granulate_processor_mainboard.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.usb_strings} {build.xSerial} -DCORE_DEBUG
+gp20_mainboard.upload.dfu_vid=0x0483
+gp20_mainboard.upload.dfu_pid=0xdf11
+gp20_mainboard.build.core=STM32-3devo:arduino
+gp20_mainboard.build.board=STM32_GP20_MAINBOARD
+gp20_mainboard.build.variant=GP20_Mainboard
+gp20_mainboard.build.usb_strings='-DUSB_MANUFACTURER_STRING="3devo BV (www.3devo.com)"' '-DUSB_PRODUCT_STRING="GP20 Mainboard"'
+gp20_mainboard.build.extra_flags=-D{build.product_line} {build.enable_usb} {build.usb_strings} {build.xSerial} -DCORE_DEBUG
 
 # Partition name for mass-storage uploads through an st-link board. This
 # should match the st-link board, not the target CPU
-granulate_processor_mainboard.node=NODE_F401RE
-granulate_processor_mainboard.upload.maximum_size=524288
-granulate_processor_mainboard.upload.maximum_data_size=98304
-granulate_processor_mainboard.build.mcu=cortex-m4
+gp20_mainboard.node=NODE_F401RE
+gp20_mainboard.upload.maximum_size=524288
+gp20_mainboard.upload.maximum_data_size=98304
+gp20_mainboard.build.mcu=cortex-m4
 # This enables -g always, which can be removed if this is fixed upstream
 # https://github.com/stm32duino/Arduino_Core_STM32/issues/873
-granulate_processor_mainboard.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard -g
+gp20_mainboard.build.flags.fp=-mfpu=fpv4-sp-d16 -mfloat-abi=hard -g
 # Used to load the right HAL and CMSIS includes
-granulate_processor_mainboard.build.series=STM32F4xx
+gp20_mainboard.build.series=STM32F4xx
 # Not sure what this is used for. Probably by core code?
-granulate_processor_mainboard.build.product_line=STM32F401xE
+gp20_mainboard.build.product_line=STM32F401xE
 # CMSIS lib to link in
-granulate_processor_mainboard.build.cmsis_lib_gcc=arm_cortexM4lf_math
+gp20_mainboard.build.cmsis_lib_gcc=arm_cortexM4lf_math
 # TODO: Should this be here? Should this use altID (as the maple upload does)?
 # Should the address be hardcoded (might be the same over all STM32 chips)?
-granulate_processor_mainboard.upload.dfu_alt=0
-granulate_processor_mainboard.upload.dfu_address=0x08000000
+gp20_mainboard.upload.dfu_alt=0
+gp20_mainboard.upload.dfu_address=0x08000000
 
 # Upload menu
-granulate_processor_mainboard.menu.upload_method.dfuUtilReset=dfu-util with DFU autoreset
-granulate_processor_mainboard.menu.upload_method.dfuUtilReset.upload.tool=dfuUtilReset
-granulate_processor_mainboard.menu.upload_method.dfuUtilReset.upload.options=
+gp20_mainboard.menu.upload_method.dfuUtilReset=dfu-util with DFU autoreset
+gp20_mainboard.menu.upload_method.dfuUtilReset.upload.tool=dfuUtilReset
+gp20_mainboard.menu.upload_method.dfuUtilReset.upload.options=
 # This must exist, otherwise the IDE falls back to upload using programmer
-granulate_processor_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
+gp20_mainboard.menu.upload_method.dfuUtilReset.upload.protocol=
 
-granulate_processor_mainboard.menu.upload_method.dfuUtil=dfu-util with serial autoreset
-granulate_processor_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
-granulate_processor_mainboard.menu.upload_method.dfuUtil.upload.use_1200bps_touch=true
-granulate_processor_mainboard.menu.upload_method.dfuUtil.upload.options=
+gp20_mainboard.menu.upload_method.dfuUtil=dfu-util with serial autoreset
+gp20_mainboard.menu.upload_method.dfuUtil.upload.tool=dfuUtil
+gp20_mainboard.menu.upload_method.dfuUtil.upload.use_1200bps_touch=true
+gp20_mainboard.menu.upload_method.dfuUtil.upload.options=
 # This must exist, otherwise the IDE falls back to upload using programmer
-granulate_processor_mainboard.menu.upload_method.dfuUtil.upload.protocol=
+gp20_mainboard.menu.upload_method.dfuUtil.upload.protocol=
 
-granulate_processor_mainboard.menu.upload_method.MassStorage=Mass Storage
-granulate_processor_mainboard.menu.upload_method.MassStorage.upload.protocol=
-granulate_processor_mainboard.menu.upload_method.MassStorage.upload.tool=STM32-3devo:massStorageCopy
+gp20_mainboard.menu.upload_method.MassStorage=Mass Storage
+gp20_mainboard.menu.upload_method.MassStorage.upload.protocol=
+gp20_mainboard.menu.upload_method.MassStorage.upload.tool=STM32-3devo:massStorageCopy
 
-granulate_processor_mainboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
-granulate_processor_mainboard.menu.upload_method.swdMethod.upload.protocol=0
-granulate_processor_mainboard.menu.upload_method.swdMethod.upload.options=-g
-granulate_processor_mainboard.menu.upload_method.swdMethod.upload.tool=STM32-3devo:stm32CubeProg
+gp20_mainboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+gp20_mainboard.menu.upload_method.swdMethod.upload.protocol=0
+gp20_mainboard.menu.upload_method.swdMethod.upload.options=-g
+gp20_mainboard.menu.upload_method.swdMethod.upload.tool=STM32-3devo:stm32CubeProg
 
-granulate_processor_mainboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
-granulate_processor_mainboard.menu.upload_method.serialMethod.upload.protocol=1
-granulate_processor_mainboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
-granulate_processor_mainboard.menu.upload_method.serialMethod.upload.tool=STM32-3devo:stm32CubeProg
+gp20_mainboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+gp20_mainboard.menu.upload_method.serialMethod.upload.protocol=1
+gp20_mainboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
+gp20_mainboard.menu.upload_method.serialMethod.upload.tool=STM32-3devo:stm32CubeProg
 
-granulate_processor_mainboard.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
-granulate_processor_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
-granulate_processor_mainboard.menu.upload_method.dfuMethod.upload.options=-g
-granulate_processor_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32-3devo:stm32CubeProg
-granulate_processor_mainboard.menu.upload_method.dfuMethod.upload.use_1200bps_touch=true
+gp20_mainboard.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+gp20_mainboard.menu.upload_method.dfuMethod.upload.protocol=2
+gp20_mainboard.menu.upload_method.dfuMethod.upload.options=-g
+gp20_mainboard.menu.upload_method.dfuMethod.upload.tool=STM32-3devo:stm32CubeProg
+gp20_mainboard.menu.upload_method.dfuMethod.upload.use_1200bps_touch=true
 
 ################################################################################
 # TODO: Remove a bunch of these options once we are sure what we need.
 # Serialx activation
-granulate_processor_mainboard.menu.xserial.none=Enabled (no generic 'Serial')
-granulate_processor_mainboard.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
-granulate_processor_mainboard.menu.xserial.generic=Enabled (generic 'Serial')
-granulate_processor_mainboard.menu.xserial.disabled=Disabled (No Serial support)
-granulate_processor_mainboard.menu.xserial.disabled.build.xSerial=
+gp20_mainboard.menu.xserial.none=Enabled (no generic 'Serial')
+gp20_mainboard.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+gp20_mainboard.menu.xserial.generic=Enabled (generic 'Serial')
+gp20_mainboard.menu.xserial.disabled=Disabled (No Serial support)
+gp20_mainboard.menu.xserial.disabled.build.xSerial=
 
 # USB connectivity
-granulate_processor_mainboard.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
-granulate_processor_mainboard.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
-granulate_processor_mainboard.menu.usb.CDC=CDC (no generic 'Serial')
-granulate_processor_mainboard.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
-granulate_processor_mainboard.menu.usb.HID=HID (keyboard and mouse)
-granulate_processor_mainboard.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
-granulate_processor_mainboard.menu.usb.none=None
-granulate_processor_mainboard.menu.xusb.FS=Low/Full Speed
-granulate_processor_mainboard.menu.xusb.HS=High Speed
-granulate_processor_mainboard.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
-granulate_processor_mainboard.menu.xusb.HSFS=High Speed in Full Speed mode
-granulate_processor_mainboard.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+gp20_mainboard.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+gp20_mainboard.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+gp20_mainboard.menu.usb.CDC=CDC (no generic 'Serial')
+gp20_mainboard.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+gp20_mainboard.menu.usb.HID=HID (keyboard and mouse)
+gp20_mainboard.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+gp20_mainboard.menu.usb.none=None
+gp20_mainboard.menu.xusb.FS=Low/Full Speed
+gp20_mainboard.menu.xusb.HS=High Speed
+gp20_mainboard.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+gp20_mainboard.menu.xusb.HSFS=High Speed in Full Speed mode
+gp20_mainboard.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
 
 # Optimizations
-granulate_processor_mainboard.menu.opt.osstd=Smallest (-Os default)
-granulate_processor_mainboard.menu.opt.oslto=Smallest (-Os) with LTO
-granulate_processor_mainboard.menu.opt.oslto.build.flags.optimize=-Os -flto
-granulate_processor_mainboard.menu.opt.o1std=Fast (-O1)
-granulate_processor_mainboard.menu.opt.o1std.build.flags.optimize=-O1
-granulate_processor_mainboard.menu.opt.o1lto=Fast (-O1) with LTO
-granulate_processor_mainboard.menu.opt.o1lto.build.flags.optimize=-O1 -flto
-granulate_processor_mainboard.menu.opt.o2std=Faster (-O2)
-granulate_processor_mainboard.menu.opt.o2std.build.flags.optimize=-O2
-granulate_processor_mainboard.menu.opt.o2lto=Faster (-O2) with LTO
-granulate_processor_mainboard.menu.opt.o2lto.build.flags.optimize=-O2 -flto
-granulate_processor_mainboard.menu.opt.o3std=Fastest (-O3)
-granulate_processor_mainboard.menu.opt.o3std.build.flags.optimize=-O3
-granulate_processor_mainboard.menu.opt.o3lto=Fastest (-O3) with LTO
-granulate_processor_mainboard.menu.opt.o3lto.build.flags.optimize=-O3 -flto
-granulate_processor_mainboard.menu.opt.ogstd=Debug (-Og)
-granulate_processor_mainboard.menu.opt.ogstd.build.flags.optimize=-Og
+gp20_mainboard.menu.opt.osstd=Smallest (-Os default)
+gp20_mainboard.menu.opt.oslto=Smallest (-Os) with LTO
+gp20_mainboard.menu.opt.oslto.build.flags.optimize=-Os -flto
+gp20_mainboard.menu.opt.o1std=Fast (-O1)
+gp20_mainboard.menu.opt.o1std.build.flags.optimize=-O1
+gp20_mainboard.menu.opt.o1lto=Fast (-O1) with LTO
+gp20_mainboard.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+gp20_mainboard.menu.opt.o2std=Faster (-O2)
+gp20_mainboard.menu.opt.o2std.build.flags.optimize=-O2
+gp20_mainboard.menu.opt.o2lto=Faster (-O2) with LTO
+gp20_mainboard.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+gp20_mainboard.menu.opt.o3std=Fastest (-O3)
+gp20_mainboard.menu.opt.o3std.build.flags.optimize=-O3
+gp20_mainboard.menu.opt.o3lto=Fastest (-O3) with LTO
+gp20_mainboard.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+gp20_mainboard.menu.opt.ogstd=Debug (-Og)
+gp20_mainboard.menu.opt.ogstd.build.flags.optimize=-Og
 
 # C Runtime Library
-granulate_processor_mainboard.menu.rtlib.nano=Newlib Nano (default)
-granulate_processor_mainboard.menu.rtlib.nanofp=Newlib Nano + Float Printf
-granulate_processor_mainboard.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
-granulate_processor_mainboard.menu.rtlib.nanofs=Newlib Nano + Float Scanf
-granulate_processor_mainboard.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
-granulate_processor_mainboard.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
-granulate_processor_mainboard.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
-granulate_processor_mainboard.menu.rtlib.full=Newlib Standard
-granulate_processor_mainboard.menu.rtlib.full.build.flags.ldspecs=
+gp20_mainboard.menu.rtlib.nano=Newlib Nano (default)
+gp20_mainboard.menu.rtlib.nanofp=Newlib Nano + Float Printf
+gp20_mainboard.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+gp20_mainboard.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+gp20_mainboard.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+gp20_mainboard.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+gp20_mainboard.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+gp20_mainboard.menu.rtlib.full=Newlib Standard
+gp20_mainboard.menu.rtlib.full.build.flags.ldspecs=
 
 ##########################################################################################
 # Based on generic STM32G0 board
