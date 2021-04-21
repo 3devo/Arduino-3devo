@@ -263,13 +263,14 @@ gp20_hopperboard.build.series=STM32G0xx
 gp20_hopperboard.build.cmsis_lib_gcc=arm_cortexM0l_math
 # This enables -g always, which can be removed if this is fixed upstream
 # https://github.com/stm32duino/Arduino_Core_STM32/issues/873
-gp20_hopperboard.build.extra_flags=-D{build.product_line} {build.xSerial} -D__CORTEX_SC=0 -g
+gp20_hopperboard.build.extra_flags=-D{build.product_line} {build.xSerial} -D__CORTEX_SC=0 -g -DVECT_TAB_OFFSET={build.flash_offset}
 
 gp20_hopperboard.upload.maximum_size=65536
 gp20_hopperboard.upload.maximum_data_size=8192
 gp20_hopperboard.build.board=STM32_GP20_HOPPERBOARD
 gp20_hopperboard.build.product_line=STM32G030xx
 gp20_hopperboard.build.variant=GP20_Hopperboard
+gp20_hopperboard.build.flash_offset=0
 
 # Upload menu
 gp20_hopperboard.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
@@ -281,6 +282,13 @@ gp20_hopperboard.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
 gp20_hopperboard.menu.upload_method.serialMethod.upload.protocol=1
 gp20_hopperboard.menu.upload_method.serialMethod.upload.options={serial.port.file} -s
 gp20_hopperboard.menu.upload_method.serialMethod.upload.tool=STM32-3devo:stm32CubeProg
+
+gp20_hopperboard.menu.upload_method.childbusMethod=Childbus bootloader (compile only)
+# Cannot actually upload directly, just used to set right compilation options
+gp20_hopperboard.menu.upload_method.childbusMethod.upload.tool=
+# Allocate flash (through LD_FLASH_OFFSET in platform.txt) & ISR
+# (through VECT_TAB_OFFSET in extra_flags above) after bootloader
+gp20_hopperboard.menu.upload_method.childbusMethod.build.flash_offset=4096
 
 # Serial menu
 gp20_hopperboard.menu.xserial.generic=Enabled (generic 'Serial')
