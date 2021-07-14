@@ -88,6 +88,10 @@
 // UART Definitions
 #define SERIAL_UART_INSTANCE    2
 
+// Do not generate code and ISR for UART1, so we can use our own
+// low-level access
+#define SKIP_UART1
+
 // Default pin used for generic 'Serial' instance
 // Mandatory for Firmata
 #define PIN_SERIAL_RX           PA3
