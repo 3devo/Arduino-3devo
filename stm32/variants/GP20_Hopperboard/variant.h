@@ -100,6 +100,15 @@
 // HAL configuration
 #define HSE_VALUE               16000000U
 
+// Precalculated I²C timings to save startup time, taken from datasheet.
+// SM seems to produce 100kHz, FM only 300kHz instead of 400kHz,
+// probably because the rise times are more than taken into account by
+// these values.
+// Only valid for 16Mhz I2CxCLK (PCLK by default)
+#define I2C_TIMING_SM           0x30420F13
+#define I2C_TIMING_FM           0x10320309
+#define I2C_TIMING_FMP          0x00200204
+
 /*----------------------------------------------------------------------------
  *        Arduino objects - C++ only
  *----------------------------------------------------------------------------*/
