@@ -38,3 +38,7 @@ sudo adduser yourusername dialout plugdev
 
 This applies to Linux, under Windows permissions to USB devices are probably
 handed by default.
+
+### Licensing
+Copyright and licensing of files in this repository is very diverse. See
+the licensing header in each file to see what license applies to it.

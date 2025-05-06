@@ -1,3 +1,10 @@
+// Permission is hereby granted, free of charge, to anyone obtaining
+// a copy of this document, to do whatever they want with them without
+// any restriction, including, but not limited to, copying, modification
+// and redistribution.
+//
+// NO WARRANTY OF ANY KIND IS PROVIDED.
+
 #if 0
 // For when https://github.com/stm32duino/Arduino_Core_STM32/pull/1091
 // is merged
