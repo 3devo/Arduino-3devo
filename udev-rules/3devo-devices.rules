@@ -1,0 +1,17 @@
+# These rules give access to the raw usb devices for boards running the
+# stm32duino core, with the default or 3devo custom usb ids.
+#
+# This uses the uaccess tag, which tells systemd that any logged in user
+# should have access.
+#
+# Other useful rules for e.g. atmel/stlink programmers, and ROM dfu
+# bootloaders are installed with the avrdude, openocd and dfu-util
+# Debian/Ubuntu packages.
+
+# STM32 Arduino core in CDC serial mode (might have a DFU runtime
+# descriptor), e.g. for Nucleo boards.
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="0483", ATTRS{idProduct}=="5740", TAG+="uaccess"
+# Airid mainboard
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="0f44", TAG+="uaccess"
+# GP20 mainboard
+ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="16d0", ATTRS{idProduct}=="102a", TAG+="uaccess"
