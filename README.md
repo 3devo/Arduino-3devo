@@ -5,6 +5,10 @@ access to all pins on the board. To install, make a clone if this
 repository into your Sketchbook/hardware folder (so you would have
 `Sketchbook/hardware/3devo/avr/platform.txt`, for example).
 
+### Uploading methods
+For more info on uploading firmware to these boards, see
+[UPLOADING.md](./docs/UPLOADING.md).
+
 ### Udev rules for USB device access (Linux)
 To allow accessing USB devices, udev rules are needed to hand out access to
 normal users (resist the temptation to just run under sudo, since that might
